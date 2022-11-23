@@ -177,5 +177,85 @@ console.log(`Могу купить игру: ${canBuy ? "Да" : "Нет"}`);
 
 // Фнукции обычные, анонимные, стрелочные
 
+// Пример обычной функции
+
+// Пример анонимной фнункции
+
+// Пример стрелочной функции
+
+// Упрощение функции
 const toPowerArrow = (num, power) => num ** power;
 console.log(`Квадрат равен ${toPowerArrow(5, 2)}`);
+
+// Значение по умолчанию
+
+// Можно так
+
+/*function toPower(b, f) {
+  const f2 = f ?? 2;
+  const res = b ** f2;
+  return res;
+} 
+console.log(`Result = ${toPower(2,)}`);*/
+
+// Но лучше делать так
+
+function toPower(b, f = 2) {
+  const res = b ** f;
+  return res;
+}
+console.log(`Result: ${toPower(2)}`);
+
+// Задание по фнукциям
+
+/* 
+Задание для упражнения:
+Пользователь:
+Возраст
+Наличие работы
+Деньги
+Нужно проверить может ли он купить новый MacBook за 2000$? Он может брать не только свои деньги, но и взять кредит. Ему дадут 500$, только если ему больше 24-х лет и он имеет работу, 100$ если ему просто больше 24-х лет и 0 в ином случае. Напишите функцию, которая принимает данные пользователя и товара и возвращает true или false.
+*/
+
+function credit(age, work) {
+  if (age > 24 && work === true) {
+    return 500;
+  } else if (age > 24 && work === false) {
+    return 100;
+  } else {
+    return 0;
+  }
+}
+console.log(`Мне дадут кредит:  $${credit(25, true)}`);
+
+function canBuyMacBook(age1, work1, money) {
+  const allMoney = credit(age1, work1) + money;
+  const res_1 = allMoney > 2000 ? true : false;
+  return res_1;
+}
+console.log(`Могу купить MacBook: ${canBuyMacBook(25, true, 1501)}`);
+
+//или
+
+function computerCredit(age_1, hasJob = false) {
+  switch (true) {
+    case age_1 > 24 && hasJob: // true === age > 25 && true === hasJob
+      return 500; // можно без break потому что исполь return
+    case age_1 > 24:
+      return 100;
+    default:
+      return 0;
+  }
+}
+
+function canBuyIt(
+  productPrice,
+  age_1,
+  all_money,
+  hasJob = false
+) /* hasJob в конец тк по умолчанию при вызвове можно будет спокойно вызывать  */ {
+  const creditMoney = computerCredit(age_1, hasJob);
+  return productPrice <= creditMoney + all_money;
+}
+
+console.log(`Результат покупки ${canBuyIt(2000, 25, 1500, true)}`);

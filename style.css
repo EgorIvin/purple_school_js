@@ -6,20 +6,38 @@ body {
   color: black;
 }
 
-h1 {
-  font-family: "Nunito", sans-serif;
-  color: black;
-}
-
 .profile_card_desc {
   box-shadow: 0 18px 200px -60px black;
   border-radius: 50px;
-  width: 650px;
+  width: 350px;
   position: relative;
+  margin: auto;
   backdrop-filter: blur(15px);
   border: 2px solid #ffffff40;
   padding: 3rem 5rem;
+  padding-top: 3rem;
   display: flex;
   flex-direction: column;
   gap: 40px;
+  text-align: center;
+}
+
+img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  box-shadow: 0 10px 60px -10px rgba(17, 150, 245, 0.5);
+  top: 10px;
+}
+
+.name {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2.8rem;
+}
+
+.role {
+  text-align: center;
+  font-weight: normal;
+  font-size: 1.8rem;
 }
