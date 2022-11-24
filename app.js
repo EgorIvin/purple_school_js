@@ -206,8 +206,7 @@ function toPower(b, f = 2) {
 }
 console.log(`Result: ${toPower(2)}`);
 
-// Задание по фнукциям
-
+// Задание по функциям:
 /* 
 Задание для упражнения:
 Пользователь:
@@ -235,7 +234,7 @@ function canBuyMacBook(age1, work1, money) {
 }
 console.log(`Могу купить MacBook: ${canBuyMacBook(25, true, 1501)}`);
 
-//или
+// ИЛИ ДРУГОЙ ВАРИАНТ
 
 function computerCredit(age_1, hasJob = false) {
   switch (true) {
@@ -258,4 +257,53 @@ function canBuyIt(
   return productPrice <= creditMoney + all_money;
 }
 
-console.log(`Результат покупки ${canBuyIt(2000, 25, 1500, true)}`);
+console.log(`Результат покупки: ${canBuyIt(2000, 25, 1500, true)}`);
+
+//  Массивы
+// Как получить первый или последний элемент массива:
+const rolesUser = ["Admin", "User", "SuperAdmin"];
+console.log(`Первый элемент массива через индекс: ${rolesUser[0]}`);
+console.log(
+  `Последний элемент массива через length - 1: ${
+    rolesUser[rolesUser.length - 1]
+  }`
+);
+
+console.log(`Первый элемент массива через at: ${rolesUser.at(0)}`);
+console.log(`Последний элмент массива через at: ${rolesUser.at(-1)}`);
+// console.log(rolesUser.at(1))
+console.log(rolesUser.at(0));
+// consolelog(rolesUser[0]);
+console.log(rolesUser[0]);
+
+// обяьвление через newArray
+const rolesUser_1 = new Array("Egor", "Dasha");
+console.log(rolesUser_1);
+console.log(`Массив созданый через new Array: ${rolesUser_1.at(0)}`);
+
+// Изменение / управление элементами в массиве
+
+const newPeople = ["Egor", "Dasha", "Vanya"];
+newPeople[0] = "SASHA";
+console.log(newPeople.at(0));
+
+// Базовые методы .push .unshift .pop .shift
+
+const randomWords = ["God", "Rap", "Sosiska", "Lol"]; // MASSIVE
+
+// .push() добавление элемента в конец массива
+const addNewElement_inend = randomWords.push("Add new word in end!");
+console.log(`Add new word in end: ${randomWords}`); // доб новый элемент в конец
+console.log(addNewElement_inend); // покажет длину массива с 1 счет
+// .unshift()
+const addNewElement_instart = randomWords.unshift("Add new word in start");
+console.log(`Add new word in start: ${randomWords}`); // добавили новой элемент в начало
+console.log(addNewElement_instart);
+// .pop()
+const delete_end = randomWords.pop(); // удаление последнего элемента
+console.log(`Delete last element: ${randomWords}`);
+console.log(delete_end);
+// .shift() // удаление нулевого элемента
+const delete_first = randomWords.shift();
+console.log(`Delete first element: ${randomWords}`);
+console.log(delete_first);
