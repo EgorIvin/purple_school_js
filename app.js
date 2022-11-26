@@ -146,9 +146,9 @@ console.log(`You can buy ${myMoney > 20 ? "tomato" : "nothing"}`);
  */
 
 // через switch
-const res = prompt("Cколько будет 7 + или - 15?");
+// const res = prompt("Cколько будет 7 + или - 15?");
 
-switch (true) {
+/* switch (true) {
   case res === "Я не робот":
   case Number(res) === 22:
   case Number(res) === -8:
@@ -156,7 +156,7 @@ switch (true) {
     break;
   default:
     console.log("Вы робот");
-}
+} */
 
 /* Пользователь хочет приобрести игру в магазине. Он может это сделать только если:
 Eго баланс больше 1000 (balance) или число бонусов больше 100 (bonusBalance)
@@ -307,3 +307,67 @@ console.log(delete_end);
 const delete_first = randomWords.shift();
 console.log(`Delete first element: ${randomWords}`);
 console.log(delete_first);
+
+// Поиск элемента в массиве
+
+const massive = new Array("Egor", "Dasha", "Something");
+
+// indexOf
+const elIndex = massive.indexOf("olol");
+console.log(elIndex); // такого индекса нет поэтому - 1 придет
+
+// .includes
+
+const elIndex2 = massive.includes("Egor"); // индекс есть вернет true
+console.log(elIndex2);
+
+// includes через true false понимает (через булевому логику)
+if (massive.includes("Dasha")) {
+  console.log("Egor + Dasha");
+}
+
+// .slice() - учитывать передау одного параметра и передачу двух параметров;
+
+const newMassive = ["Egor", "Dasha", "Petya", "Leonid"];
+
+const newSlice = newMassive.slice(2);
+console.log(newSlice); // Petya Leonid - возращ элементы с указ индекса до конца  массива НЕ МОДИФИЦИРУЯ САМ МАССИВ
+
+const newSlice_1 = newMassive.slice(0, 2); // - возвращ с указ индекса первым параметром до 2 НО НЕ ВКЛЮЧАЯ ЕГО ТО ЕСТЬ 0 И 1 ИНДЕКС
+console.log(newSlice_1);
+
+const newSlice_2 = newMassive.slice(-1); // возращ последний элемент - Leonid
+console.log(newSlice_2);
+
+const newSlice_3 = newMassive.slice(1, -2); // возвращ со второго по минус 2 (не включая его) - Dasha
+console.log(newSlice_3);
+
+console.log(newMassive); // НЕ МОДИФИЦИРОВАН
+
+// .splice - МОДИФИЦИРУЕТ ИСХОДНЫЙ МАССИВ
+
+const newMassive_1 = ["Egor", "Dasha", "Something"];
+
+const newSplice = newMassive_1.splice(0, 2); // взяли нулевой элмент и два элемента нулевой и первый
+console.log(newSplice);
+console.log(newSplice); // МОДИФИЦРОВАН = ИСХОДНЫЙ МАССИВ ИЗМЕНЕН
+
+// .reverse - переворачивает массив
+
+const massiveReverse = ["Egor", "Dasha", "Lesha", "Ignat"];
+console.log(massiveReverse.reverse()); // сразу модифицирует его и переворачивает
+const newArrConcat = ["Name_0", "Name_1", "Name_2"];
+console.log(massiveReverse.concat(newArrConcat)); // добавили новый массив
+
+// Из массива в строку и обратно
+// Из строки в массив
+
+const newMassive_2 = ["Egor", "Dasha", "Lesha", "Ignat"];
+
+const url = "google/cryptorank/price";
+const res_2 = url.split("/");
+console.log(res_2);
+
+// Из массива в строку
+const res_3 = newMassive_2.join(", ");
+console.log(res_3);
