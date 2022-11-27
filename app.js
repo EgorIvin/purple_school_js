@@ -452,3 +452,9 @@ function getHttp(url_1) {
   }
 }
 console.log(getHttp(url_1));
+
+// ЦИКЛЫ
+
+for (let i = 1; i < 10; i++) {
+  console.log(`Ваш баланс равен: ${i}$`);
+}
