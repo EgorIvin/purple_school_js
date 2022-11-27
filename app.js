@@ -348,26 +348,107 @@ console.log(newMassive); // НЕ МОДИФИЦИРОВАН
 
 const newMassive_1 = ["Egor", "Dasha", "Something"];
 
-const newSplice = newMassive_1.splice(0, 2); // взяли нулевой элмент и два элемента нулевой и первый
-console.log(newSplice);
+const newSplice = newMassive_1.splice(0, 2); // взяли нулевой элмент и два элемента нулевой и первый;
 console.log(newSplice); // МОДИФИЦРОВАН = ИСХОДНЫЙ МАССИВ ИЗМЕНЕН
 
 // .reverse - переворачивает массив
 
 const massiveReverse = ["Egor", "Dasha", "Lesha", "Ignat"];
 console.log(massiveReverse.reverse()); // сразу модифицирует его и переворачивает
+
+// .concat
 const newArrConcat = ["Name_0", "Name_1", "Name_2"];
 console.log(massiveReverse.concat(newArrConcat)); // добавили новый массив
 
 // Из массива в строку и обратно
-// Из строки в массив
 
-const newMassive_2 = ["Egor", "Dasha", "Lesha", "Ignat"];
-
+// Из строки в массив:
 const url = "google/cryptorank/price";
 const res_2 = url.split("/");
 console.log(res_2);
 
-// Из массива в строку
+// Из массива в строку:
+const newMassive_2 = ["Egor", "Dasha", "Lesha", "Ignat"];
 const res_3 = newMassive_2.join(", ");
 console.log(res_3);
+
+/* ​
+Дан список задач
+const tasks = ['Задача 1'];
+
+Сделать функции:
+Добавление задачи в конец
+Удаление задачи по названию
+Перенос задачи в начало списка по названию
+! Всегда меняем исходный массив 
+*/
+
+const tasks = ["Задача 1"];
+
+// добавили задачу в конец
+function addTasks(task) {
+  tasks.push(task);
+}
+// удалили задачу по названию
+function Remove(task) {
+  const index = tasks.indexOf(task);
+  if (index === -1) {
+    return;
+  }
+  return tasks.splice(index, 1);
+}
+// перенесли задачу в начало списка
+/* 
+Сделали константу OldTask куда положили индекс задачи 
+Далее удалили задачу 
+Но эту же задачу из переменной OldTask добавили в начало
+*/
+function Prioritize(task) {
+  const result = Remove(task); // DRY
+  if (!result) {
+    return;
+  }
+  tasks.unshift(result[0]);
+}
+
+addTasks("Задача 2");
+addTasks("Задача 3");
+console.log(tasks);
+Remove("Задача 2");
+console.log(tasks);
+Prioritize("Задача 3");
+console.log(tasks);
+
+// Деструктуризация
+const userEgor = ["Egor", 23, "Izmir"];
+const [EgorName, EgorAge, EgorTown] = userEgor;
+console.log(EgorName, EgorAge, EgorTown);
+
+/* 
+Дан произвольный url вида - https://purpleschool.ru/course/javascript
+Нужно сделать функцию, которая выводит в консоль:
+Протокол (https)
+Доменное имя (purpleschool.ru)
+Путь внутри сайта (/course/javascript)
+*/
+
+// Проверка на правильный не правильный url
+// DRY
+
+const url_1 = "https://purpleschool.ru/course/javascript";
+const url_5 = "purpleschool.ru/course/javascript";
+
+function getHttp(url_1) {
+  const urlArr = url_1.split("/"); // ["https:, """, "purpleschool.ru", "course", "javascript"]
+  const [protocol, _, domen, ...path] = urlArr;
+  if (protocol === "https:" || protocol === "http:") {
+    if (!domen.includes(".")) {
+      return "No";
+    }
+    console.log(protocol, _, domen, path);
+    console.log(`Протокол: ${protocol.split(":")[0]}`);
+    console.log(`Домен: ${domen}`);
+    console.log(`Путь: /${path.join("/")}`);
+  }
+}
+console.log(getHttp(url_1));
