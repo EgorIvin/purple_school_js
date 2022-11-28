@@ -458,3 +458,56 @@ console.log(getHttp(url_1));
 for (let i = 1; i < 10; i++) {
   console.log(`Ваш баланс равен: ${i}$`);
 }
+
+// Задача на js
+
+/* 
+Задача вывести в консоль строку 'Я люблю JS !' из массива циклом в обратном пордке, не используя метод reverse. 
+*/
+const arr = ["!", "JS", "люблю", "Я"];
+const newM = [];
+
+for (let i = arr.length - 1; i >= 0; i--) {
+  newM.push(arr[i]);
+}
+const newMToString = newM.join(" ");
+console.log(newMToString);
+
+// цикл в цикле для двумерного массива;
+const loolInLoop = [
+  ["Задача 1", 2],
+  ["Задача 2", 2],
+];
+
+// while
+// do while
+
+// for of - для быстрого обхода массива по Значению!
+const forOf = ["Egor", "Dasha", "Petya", 23];
+for (let element of forOf) {
+  console.log(`for of по значению: ${element}`);
+}
+
+// for in - для быстрого обхода по Индексу!
+for (let index in forOf) {
+  //console.log(index); // вывел по индексу
+  console.log(`Вывод по значению индекса: ${forOf[index]}`); // вывел по значению индекса
+}
+
+/* 
+Есть выгрузка операций пользователя 
+const operations = [1000, - 700, 300, -500, 10000]
+а также нач баланc в $100
+Необходимо сделать функции расчетов 
+- Итогового баланса 
+- Наличие отрицателнього баланса (если после окончание очередной операции <0 
+  выдать false)
+- Расчета среднего дохода и среднего расхода
+*/
+
+const operations = [1000, -700, 300, -500, 10000];
+
+function caclBalance() {
+  // перебрать массив и сложить каждый элемент с начальным балансом
+  for (let i = 0; i < operations.length - 1; i++) {}
+}
