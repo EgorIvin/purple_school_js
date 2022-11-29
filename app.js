@@ -506,8 +506,76 @@ const operations = [1000, - 700, 300, -500, 10000]
 */
 
 const operations = [1000, -700, 300, -500, 10000];
+const startBalance = 100;
 
-function caclBalance() {
-  // перебрать массив и сложить каждый элемент с начальным балансом
-  for (let i = 0; i < operations.length - 1; i++) {}
+function getBalance(arrayOfOperations, intialBalance) {
+  let balance = intialBalance;
+  for (const element of arrayOfOperations) {
+    // прошлись циклом вывели элементы
+    balance += element; // сложили каждый элемент с балансом
+  }
+  return balance; // вернули баланс
 }
+
+console.log(getBalance(operations, startBalance));
+
+// корретность операции
+function checkOperations(arrayOfOperations, intialBalance) {
+  let balance = intialBalance;
+  let isOkay = true; // по ум считаем что все окей
+  for (const element of arrayOfOperations) {
+    balance += element;
+    if (balance < 0) {
+      // елси баланс меньше возвращ false;
+      isOkay = false;
+      break;
+    }
+    return isOkay;
+  }
+}
+
+console.log(checkOperations(operations, startBalance));
+
+function avarageOperations(arrayOfOperations) {
+  let positiveCount = 0;
+  let positiveSum = 0;
+  let negativeCount = 0;
+  let negativeSum = 0;
+  for (const element of arrayOfOperations) {
+    if (element > 0) {
+      positiveCount++;
+      positiveSum += element;
+    }
+    if (element < 0) {
+      negativeCount++;
+      negativeSum += element;
+    }
+  }
+  return [positiveSum / positiveCount, negativeSum / negativeCount];
+}
+console.log(avarageOperations(operations));
+
+// Callback
+
+// фнукции сложения умножения степени
+
+function sumTwoNum(a, b) {
+  return a + b;
+}
+
+function minusTwoNum(a, b) {
+  return a - b;
+}
+
+function squareTwoNum(a, b) {
+  return a ** b;
+}
+
+function itIsCallback(a, b, fn) {
+  console.log(fn.name);
+  const resCallback = fn(a, b);
+  return resCallback;
+}
+
+let res_callback = itIsCallback(4, 5, minusTwoNum);
+console.log(res_callback);
