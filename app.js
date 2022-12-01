@@ -579,3 +579,10 @@ function itIsCallback(a, b, fn) {
 
 let res_callback = itIsCallback(4, 5, minusTwoNum);
 console.log(res_callback);
+
+// Переписать замыкание в стрелочную функцию
+
+const power_1 = (pow) => (num) => num ** pow;
+
+const powerOfTwo = power_1(2);
+console.log(powerOfTwo(5));
