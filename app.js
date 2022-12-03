@@ -580,8 +580,24 @@ function itIsCallback(a, b, fn) {
 let res_callback = itIsCallback(4, 5, minusTwoNum);
 console.log(res_callback);
 
+// Возврат - замыкание
+
+function power_2(pow) {
+  return function (num) {
+    return num ** pow;
+  };
+}
+const powerOfTwo_1 = power_2(2); // результат выполнения этой функции это еще одна функция
+console.log(powerOfTwo_1(5));
+
 // Переписать замыкание в стрелочную функцию
 
+/* function power(pow){
+  return function (num){
+    return num**pow
+  }
+}
+*/
 const power_1 = (pow) => (num) => num ** pow;
 
 const powerOfTwo = power_1(2);
