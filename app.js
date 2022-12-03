@@ -602,3 +602,17 @@ const power_1 = (pow) => (num) => num ** pow;
 
 const powerOfTwo = power_1(2);
 console.log(powerOfTwo(5));
+
+// forEach
+
+const score = [5, 10, 0, 15];
+
+score.forEach((el, i) => {
+  console.log(`Round ${i + 1}: ${el}`);
+});
+
+// score.forEach(5,0) callback -> итерируем
+// (10,1) -> вторая итерация
+// нету конца, всегда итерируются все элементы
+// удобен - когда не нужно прерывать, итерация по элементам с индексом
+// для простых действий
