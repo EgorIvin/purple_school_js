@@ -616,3 +616,43 @@ score.forEach((el, i) => {
 // нету конца, всегда итерируются все элементы
 // удобен - когда не нужно прерывать, итерация по элементам с индексом
 // для простых действий
+// три аргумента элемент массива, индекс, сам массив
+
+// процедурно
+const transactionUsd = [10, -7, 50, -10, 100];
+const transactionInRUB = [];
+for (const trans of transactionUsd) {
+  transactionInRUB.push(trans * 60);
+}
+// console.log(transactionInRUB);
+// console.log(transactionUsd);
+
+// функционально через map - возвращ новые массив
+
+const transactionInRUB2 = transactionUsd.map((trans, i) => {
+  return trans * 60;
+});
+
+console.log(transactionUsd);
+console.log(transactionInRUB2);
+
+// filter
+
+const operations1 = [100, -20, 7, -20, 50];
+
+/*Имееется массив изменения цен prices, где внутри 1й элемент массива является ценой в момент X, 2й - ценой в момент Y.
+Нужно преобразовать данные в массив, где будут отображены
+только положительные изменения цен: [100,150]
+*/
+
+const prices1 = [
+  [100, 200],
+  [120, 100],
+  [200, 350],
+];
+
+const newArr1 = prices1
+  .map((element) => element[1] - element[0])
+  .filter((price) => price > 0);
+
+console.log(newArr1);
